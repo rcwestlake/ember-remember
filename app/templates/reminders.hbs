@@ -1,0 +1,7 @@
+<h3>reminders</h3>
+<ul>
+  {{#each model as |reminder|}}
+    <li>{{reminder.title}}</li>
+  {{/each}}
+  {{outlet}}
+</ul>
