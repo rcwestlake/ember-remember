@@ -1,17 +1,15 @@
-<div>
-  <h1>remEMBER</h1>
-  <ul>
-    {{#each model as |reminder|}}
-      <li class="spec-reminder-item">
-        <p>
-          {{#link-to 'reminder' reminder}}
-            {{reminder.title}}
-          {{/link-to}}
-        </p>
-        <p>{{reminder.date}}</p>
-      </li>
-    {{/each}}
-  </ul>
+<h1>remEMBER</h1>
+<ul>
+  {{#each model as |reminder|}}
+    <li class="spec-reminder-item">
+      <p>
+        {{#link-to 'reminder' reminder}}
+          {{reminder.title}}
+        {{/link-to}}
+      </p>
+      <p>{{reminder.date}}</p>
+    </li>
+  {{/each}}
+</ul>
 
-  {{outlet}}
-</div>
+{{outlet}}
