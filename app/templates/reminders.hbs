@@ -3,7 +3,7 @@
   {{#each model as |reminder|}}
     <li class="spec-reminder-item">
       <p>
-        {{#link-to 'reminder' reminder}}
+        {{#link-to 'reminder' reminder activeClass='active'}}
           {{reminder.title}}
         {{/link-to}}
       </p>
