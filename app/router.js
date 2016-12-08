@@ -7,8 +7,8 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('reminders', { resetNamespace: true }, function() {
-    this.resource('reminder', { path: ':id'});
+  this.route('reminders', function() {
+    this.route('reminder', { path: ':id'});
   });
 });
 
