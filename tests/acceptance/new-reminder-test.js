@@ -8,7 +8,7 @@ test('visiting /reminders/new', function(assert) {
 
   visit('/');
 
-  click('.spec-new-reminder');
+  click('.spec-link-new-reminder');
 
   andThen(function() {
     assert.equal(currentURL(), '/reminders/new', 'visits the /new url');
@@ -20,7 +20,7 @@ test('add new reminder on click', function(assert) {
 
   visit('/');
 
-  click('.spec-new-reminder');
+  click('.spec-link-new-reminder');
 
   andThen(function() {
     assert.equal(currentURL(), '/reminders/new', 'visits the /new url');
@@ -30,7 +30,7 @@ test('add new reminder on click', function(assert) {
   fillIn('.spec-date-field', '12/08/2016')
   fillIn('.spec-notes-field', 'Only extra green ones')
 
-  click('.add-reminder--submit')
+  click('.spec-add-reminder')
 
   andThen(function() {
     assert.equal(find('.spec-reminder-item').length, 6, 'length of items on page after added reminder');
