@@ -1,0 +1,17 @@
+<form class="add-reminder--form" {{action 'createReminder' on="submit"}}>
+  <label>
+    Title
+    {{input class="spec-title-field" value=title}}
+  </label>
+  <label>
+    Date
+    {{input type="date" class="spec-date-field" value=date}}
+  </label>
+  <label>
+    Notes
+    {{textarea class="spec-notes-field" value=notes}}
+  </label>
+  <button class="spec-add-reminder">Add Reminder</button>
+</form>
+
+{{outlet}}
