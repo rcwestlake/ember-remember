@@ -20,13 +20,14 @@ export default Ember.Component.extend({
     },
 
     editReminder(model) {
-      console.log('in edit reminder');
-      console.log('model id', model.id);
-      debugger
-      console.log('model title', model.attributes.title);
-      const reminder = this.getProperties('title', 'date', 'notes');
-      // reminder.date = new Date(reminder.date);
-      // this.get('store').findRecord('reminder', reminder).save();
+      console.log(model.get('title'));
+
+      this.get('store').findRecord('reminder', model.id).then(function(reminder) {
+        reminder.set('title', model.get('title'))
+        reminder.set('date', model.get('date'))
+        reminder.set('notes', model.get('notes'))
+        reminder.save();
+      })
     }
   }
 });
