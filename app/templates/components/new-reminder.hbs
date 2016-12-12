@@ -1,4 +1,4 @@
-<form class="add-reminder--form" {{action 'createReminder' on="submit"}}>
+<form class="add-reminder--form" {{action formAction model on="submit"}}>
   <label>
     Title
     {{input class="spec-title-field" value=title}}
