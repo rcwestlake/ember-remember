@@ -42,12 +42,11 @@ test('clicking on an individual item', function(assert) {
 });
 
 test('viewing welcome note', function(assert) {
-  server.createList('reminder', 0);
-
   visit('/');
 
   andThen(function() {
     assert.equal(find('.spec-welcome').length, 1, 'should show welcome note if no reminder added to page')
-    assert.equal(find('.spec-welcome').text().trim(), 'WELCOME!!!')
+
+    assert.equal(find('.spec-welcome').text().trim(), 'WELCOME!!!', 'displays correct welcome text')
   })
 })
