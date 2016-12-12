@@ -40,3 +40,12 @@ test('clicking on an individual item', function(assert) {
     assert.equal(find('.spec-selected-reminder').text().trim(), find('.spec-selected-reminder').text().trim(), 'selected reminder text should match list');
   });
 });
+
+test('viewing welcome note', function(assert) {
+  visit('/');
+
+  andThen(function() {
+    assert.equal(find('.spec-welcome').length, 1, 'should show welcome note if no reminder added to page')
+    assert.equal(find('.spec-welcome').text().trim(), 'WELCOME!!!', 'displays correct welcome text')
+  })
+})
