@@ -8,6 +8,9 @@ export default Ember.Controller.extend({
       .then((reminder) => {
         reminder.destroyRecord()
       })
+      .then(() => {
+        this.transitionToRoute('/reminders')
+      })
     }
   }
 });
