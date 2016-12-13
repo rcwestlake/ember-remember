@@ -172,3 +172,26 @@ test('shows unsaved note in reminder when not saved', function(assert) {
     assert.equal(find('.reminder-saved-note').length, 0, 'does not display note');
   })
 })
+
+test('delete button appears', function(assert) {
+  visit('/reminders');
+
+  click('.spec-link-new-reminder');
+
+  fillIn('.spec-title-field', 'Write great tests');
+  fillIn('.spec-notes-field', 'Really good ones');
+
+  click('.spec-add-reminder')
+
+  andThen(function() {
+    assert.equal(find('.spec-delete').length, 1, 'delete button appears');
+  })
+
+  click('.spec-delete')
+
+  andThen(function() {
+    assert.equal(find('.spec-delete').length, 0, 'reminder is deleted');
+  })
+
+
+})
