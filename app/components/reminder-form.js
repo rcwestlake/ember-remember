@@ -19,6 +19,13 @@ export default Ember.Component.extend({
         this.setProperties({ title: '', date: '', notes: '' });
       });
     },
+    discardChanges(model) {
+      model.rollbackAttributes()
+      // this.get('store').findRecord('reminder', model.id)
+      //   .then(function(reminder) {
+      //     reminder.rollback().save()
+      // });
+    },
     editReminder(model) {
       this.get('store').findRecord('reminder', model.id)
         .then(function(reminder) {
@@ -27,14 +34,6 @@ export default Ember.Component.extend({
           reminder.set('notes', model.get('notes'));
           reminder.save();
       })
-    },
-    discardChanges(model) {
-      console.log(model);
-      this.get('store').findRecord('reminder', model.id)
-        .then(function(reminder) {
-          console.log(reminder);
-          // reminder.rollback()
-      });
     }
   }
 });
