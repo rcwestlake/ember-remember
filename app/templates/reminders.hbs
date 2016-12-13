@@ -19,6 +19,9 @@
         <p>
           {{reminder.date}}
         </p>
+        <button class='spec-delete' {{action 'delete' reminder}}>
+          Delete
+        </button>
       </li>
     {{/each}}
   </ul>

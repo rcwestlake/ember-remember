@@ -8,6 +8,9 @@
   <p class="spec-selected-notes">
     {{model.notes}}
   </p>
+  <button class='spec-delete' {{action 'delete' model}}>
+    Delete
+  </button>
   <button>
     {{#link-to 'reminders.reminder.edit'
       model
