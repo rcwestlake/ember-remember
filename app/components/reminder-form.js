@@ -25,10 +25,11 @@ export default Ember.Component.extend({
     editReminder(model) {
       this.get('store').findRecord('reminder', model.id)
         .then(function(reminder) {
-          reminder.set('title', model.get('title'));
-          reminder.set('date', new Date(model.get('date')));
-          reminder.set('notes', model.get('notes'));
-          reminder.save();
+          reminder.setProperties({
+            title: model.get('title'),
+            date: new Date(model.get('date')),
+            notes: model.get('notes')
+          }).save()
       })
     }
   }
