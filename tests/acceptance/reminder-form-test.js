@@ -34,6 +34,7 @@ test('add new reminder on click', function(assert) {
 
   andThen(function() {
     assert.equal(find('.spec-reminder-item').length, 6, 'length of items on page after added reminder');
+    assert.equal(find('.hideDiscard').length, 1, 'the button does not exist on the new form');
   });
 });
 
@@ -116,5 +117,58 @@ test('edit reminder saves after clicking "save"', function(assert) {
   andThen(function() {
     assert.equal(find('.spec-selected-reminder').text().trim(), 'Eat pizza', 'title text should match edited version');
     assert.equal(find('.spec-selected-notes').text().trim(), 'With lots of cheese', 'notes text should match edited version');
+  })
+})
+
+test('edit reminder discard changes', function(assert) {
+  visit('/reminders');
+
+  click('.spec-link-new-reminder');
+
+  fillIn('.spec-title-field', 'Write great tests');
+  fillIn('.spec-notes-field', 'Really good ones');
+
+  click('.spec-add-reminder')
+
+  click('.spec-reminder-title:first');
+
+  click('.spec-link-edit-reminder');
+
+  fillIn('.spec-title-field', 'Eat pizza');
+  fillIn('.spec-notes-field', 'With lots of cheese');
+
+  click('.spec-discard-changes');
+
+  andThen(function() {
+    assert.equal(find('.hideDiscard').length, 0, 'the button exist on the edit form');
+    assert.equal(find('.spec-selected-reminder').text().trim(), 'Write great tests', 'title text should match original reminder');
+    assert.equal(find('.spec-selected-notes').text().trim(), 'Really good ones', 'notes text should match original reminder');
+  })
+})
+
+test('shows unsaved note in reminder when not saved', function(assert) {
+  visit('/reminders');
+
+  click('.spec-link-new-reminder');
+
+  fillIn('.spec-title-field', 'Write great tests');
+  fillIn('.spec-notes-field', 'Really good ones');
+
+  click('.spec-add-reminder')
+
+  click('.spec-reminder-title:first');
+
+  click('.spec-link-edit-reminder');
+
+  fillIn('.spec-title-field', 'Eat pizza');
+
+  andThen(function() {
+    assert.equal(find('.reminder-saved-note').length, 1, 'displays note for unsaved reminder');
+  })
+
+  click('.spec-discard-changes');
+
+  andThen(function() {
+    assert.equal(find('.reminder-saved-note').length, 0, 'does not display note');
   })
 })

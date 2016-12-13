@@ -14,6 +14,10 @@
   <button class="spec-add-reminder">
     {{submitText}}
   </button>
+  <button class="spec-discard-changes {{toggleDiscard}}"
+    {{action 'discardChanges' model}}>
+    Discard Changes
+  </button>
 </form>
 
 {{outlet}}
