@@ -11,6 +11,11 @@
             {{reminder.title}}
           {{/link-to}}
         </h3>
+        {{#if reminder.hasDirtyAttributes}}
+          <span class='reminder-saved-note'>
+            *Reminder has not been saved
+          </span>
+        {{/if}}
         <p>
           {{reminder.date}}
         </p>
