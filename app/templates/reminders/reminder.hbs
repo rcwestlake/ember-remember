@@ -2,10 +2,17 @@
   <h2 class="spec-selected-reminder">
     {{model.title}}
   </h2>
-  <p>
+  <p class="spec-selected-date">
     {{model.date}}
   </p>
-  <p>
+  <p class="spec-selected-notes">
     {{model.notes}}
   </p>
+  <button>
+    {{#link-to 'reminders.reminder.edit' model class="spec-link-edit-reminder"}}
+      Edit Reminder
+    {{/link-to}}
+  </button>
 </section>
+
+{{outlet}}
