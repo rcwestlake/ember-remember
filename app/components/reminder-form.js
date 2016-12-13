@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
 
   tagName: 'section',
-  classNames: ['new-reminder'],
+  classNames: ['reminder-form'],
 
   title: '',
   date: '',
