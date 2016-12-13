@@ -192,6 +192,4 @@ test('delete button appears', function(assert) {
   andThen(function() {
     assert.equal(find('.spec-delete').length, 0, 'reminder is deleted');
   })
-
-
 })
