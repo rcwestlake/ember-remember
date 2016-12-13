@@ -5,11 +5,15 @@
     {{#each model as |reminder|}}
       <li class="spec-reminder-item">
         <h3>
-          {{#link-to 'reminders.reminder' reminder class="spec-reminder-title" }}
+          {{#link-to 'reminders.reminder'
+            reminder
+            class="spec-reminder-title" }}
             {{reminder.title}}
           {{/link-to}}
         </h3>
-        <p>{{reminder.date}}</p>
+        <p>
+          {{reminder.date}}
+        </p>
       </li>
     {{/each}}
   </ul>
@@ -25,7 +29,8 @@
 {{/if}}
 
 <button>
-  {{#link-to 'reminders.new' class='spec-link-new-reminder'}}
+  {{#link-to 'reminders.new'
+    class='spec-link-new-reminder'}}
     Add Reminder
   {{/link-to}}
 </button>
