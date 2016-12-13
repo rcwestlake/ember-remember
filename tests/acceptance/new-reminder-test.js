@@ -33,7 +33,7 @@ test('add new reminder on click', function(assert) {
   click('.spec-add-reminder')
 
   andThen(function() {
-    assert.equal(find('.spec-reminder-item').length, 6, 'length of items on page after added reminder');
+    assert.equal(find('.spec-reminder-item').length, 6, 'length of items on page after added reminder')
   });
 });
 
