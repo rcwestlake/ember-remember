@@ -34,6 +34,7 @@ test('add new reminder on click', function(assert) {
 
   andThen(function() {
     assert.equal(find('.spec-reminder-item').length, 6, 'length of items on page after added reminder');
+    assert.equal(find('.hideDiscard').length, 1, 'the button does not exist on the new form');
   });
 });
 
@@ -139,6 +140,7 @@ test('edit reminder discard changes', function(assert) {
   click('.spec-discard-changes');
 
   andThen(function() {
+    assert.equal(find('.hideDiscard').length, 0, 'the button exist on the edit form');
     assert.equal(find('.spec-selected-reminder').text().trim(), 'Write great tests', 'title text should match original reminder');
     assert.equal(find('.spec-selected-notes').text().trim(), 'Really good ones', 'notes text should match original reminder');
   })
