@@ -5,3 +5,7 @@
 .hideDiscard {
   display: none;
 }
+
+.reminder-saved-note{
+  color: red;
+}
