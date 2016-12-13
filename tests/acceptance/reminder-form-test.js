@@ -118,3 +118,28 @@ test('edit reminder saves after clicking "save"', function(assert) {
     assert.equal(find('.spec-selected-notes').text().trim(), 'With lots of cheese', 'notes text should match edited version');
   })
 })
+
+test('edit reminder discard changes', function(assert) {
+  visit('/reminders');
+
+  click('.spec-link-new-reminder');
+
+  fillIn('.spec-title-field', 'Write great tests');
+  fillIn('.spec-notes-field', 'Really good ones');
+
+  click('.spec-add-reminder')
+
+  click('.spec-reminder-title:first');
+
+  click('.spec-link-edit-reminder');
+
+  fillIn('.spec-title-field', 'Eat pizza');
+  fillIn('.spec-notes-field', 'With lots of cheese');
+
+  click('.spec-discard-changes');
+
+  andThen(function() {
+    assert.equal(find('.spec-selected-reminder').text().trim(), 'Write great tests', 'title text should match original reminder');
+    assert.equal(find('.spec-selected-notes').text().trim(), 'Really good ones', 'notes text should match original reminder');
+  })
+})

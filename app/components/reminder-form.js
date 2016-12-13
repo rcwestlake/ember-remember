@@ -31,7 +31,8 @@ export default Ember.Component.extend({
             title: model.get('title'),
             date: new Date(model.get('date')),
             notes: model.get('notes')
-        }).save()
+        })
+        reminder.save()
       })
     }
   }
