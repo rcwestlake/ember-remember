@@ -20,7 +20,9 @@ export default Ember.Component.extend({
       });
     },
     discardChanges(model) {
-      model.rollbackAttributes()
+      if(model.hasDirtyAttributes) {
+        model.rollbackAttributes()
+      }
     },
     editReminder(model) {
       this.get('store').findRecord('reminder', model.id)
@@ -29,7 +31,7 @@ export default Ember.Component.extend({
             title: model.get('title'),
             date: new Date(model.get('date')),
             notes: model.get('notes')
-          }).save()
+        }).save()
       })
     }
   }
