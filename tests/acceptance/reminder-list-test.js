@@ -46,7 +46,6 @@ test('viewing welcome note', function(assert) {
 
   andThen(function() {
     assert.equal(find('.spec-welcome').length, 1, 'should show welcome note if no reminder added to page')
-
     assert.equal(find('.spec-welcome').text().trim(), 'WELCOME!!!', 'displays correct welcome text')
   })
 })
