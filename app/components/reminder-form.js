@@ -21,10 +21,6 @@ export default Ember.Component.extend({
     },
     discardChanges(model) {
       model.rollbackAttributes()
-      // this.get('store').findRecord('reminder', model.id)
-      //   .then(function(reminder) {
-      //     reminder.rollback().save()
-      // });
     },
     editReminder(model) {
       this.get('store').findRecord('reminder', model.id)
