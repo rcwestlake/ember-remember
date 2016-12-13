@@ -14,7 +14,8 @@ export default Ember.Component.extend({
     createReminder() {
       const reminder = this.getProperties('title', 'date', 'notes');
       reminder.date = new Date(reminder.date);
-      this.get('store').createRecord('reminder', reminder).save().then(() => {
+      this.get('store').createRecord('reminder', reminder).save()
+      .then(function() {
         this.setProperties({ title: '', date: '', notes: '' });
       });
     },
@@ -26,6 +27,14 @@ export default Ember.Component.extend({
           reminder.set('notes', model.get('notes'));
           reminder.save();
       })
+    },
+    discardChanges(model) {
+      console.log(model);
+      this.get('store').findRecord('reminder', model.id)
+        .then(function(reminder) {
+          console.log(reminder);
+          // reminder.rollback()
+      });
     }
   }
 });
