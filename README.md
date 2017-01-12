@@ -1,7 +1,8 @@
 # Remember
 
 This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+
+This was a week-long project built with Ember, and my first exposure to the Ember framework. It was built using agile principles, where each feature was reviewed, changed, and pushed into production before new features were started. It was a to-do app, and the focus was on Ember, not design and CSS, so it's not as pretty as I'd usually like. 
 
 ## Prerequisites
 
@@ -16,7 +17,7 @@ You will need the following things properly installed on your computer.
 ## Installation
 
 * `git clone <repository-url>` this repository
-* `cd remember`
+* `cd ember-remember`
 * `npm install`
 * `bower install`
 
@@ -39,18 +40,3 @@ Make use of the many generators for code, try `ember help generate` for more det
 * `ember build` (development)
 * `ember build --environment production` (production)
 
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
-#### Instructor handles
-
-@martensonbj @tman22 @stevekinney @nfosterky  
